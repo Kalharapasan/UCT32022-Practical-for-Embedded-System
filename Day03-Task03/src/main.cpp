@@ -13,6 +13,7 @@ void loop() {
   if(Serial.available() >0){
 
     String command = Serial.readStringUntil('\n');
+    command.trim();
     if(command == "LEDON"){
       digitalWrite(ledPin, HIGH);
       // delay(1000);
