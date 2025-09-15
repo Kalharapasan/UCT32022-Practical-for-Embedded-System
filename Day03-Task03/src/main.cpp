@@ -11,16 +11,18 @@ void loop() {
 
 
   if(Serial.available() >0){
+
     String command = Serial.readStringUntil('\n');
-    command.trim();
-    if(command.equalsIgnoreCase("LEDON")){
+    if(command == "LEDON"){
       digitalWrite(ledPin, HIGH);
+      // delay(1000);
       Serial.println("LED is ON");
-    } else if(command.equalsIgnoreCase("LEDOFF")){
+    }else if(command == "LEDOFF"){
       digitalWrite(ledPin, LOW);
+      // delay(1000);
       Serial.println("LED is OFF");
-    } else {
-      Serial.println("Unknown Command");
+    }else{
+      Serial.println("Invalid Command");
     }
   }
  
