@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <Keypad.h>
 
-const int ledPIN = 12;
+const int ledPIN = 12;//LedPin
 const int buzzerPIN = 13;  
 
 
