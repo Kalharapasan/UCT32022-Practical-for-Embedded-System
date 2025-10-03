@@ -14,17 +14,19 @@ void setup() {
 void loop() {
 
   int sensorRead = analogRead(ldrPin);
+  Serial.print("LDR Value: ");
   Serial.println(sensorRead);
   
-  if(sensorRead < 500){
+ 
+  if(sensorRead > 800){ 
     digitalWrite(ledPin, HIGH);
-    Serial.print("LED ON");
+    Serial.println("LED ON - Dark detected");
   } else {
     digitalWrite(ledPin, LOW);
-      Serial.print("LED OFF");
+    Serial.println("LED OFF - Light detected");
   }
   
-  delay(100);
+  delay(100);  
 
 }
 
