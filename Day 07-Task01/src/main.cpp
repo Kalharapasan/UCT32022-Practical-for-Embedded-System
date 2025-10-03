@@ -1,34 +1,43 @@
 #include <Arduino.h>
 #include <LiquidCrystal_I2C.h>
 
-#define RED_LED_PIN 1
-#define GREEN_LED_PIN 2
+const int redLED = 12;
+const int greenLED = 13;
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // Function declaration
 void updateLCDDisplay();
 
+// Variables
 bool redLedState = false;
 bool greenLedState = false;
 unsigned long previousMillis = 0;
-const long interval = 2000; 
+const long interval = 2000;
 
 void setup() {
-
+  // Initialize serial communication
   Serial.begin(9600);
-  pinMode(RED_LED_PIN, OUTPUT);
-  pinMode(GREEN_LED_PIN, OUTPUT);
+  
+  // Initialize LED pins
+  pinMode(redLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
+  
+  // Initialize LCD
   lcd.init();
   lcd.backlight();
+  
+  // Display initial message
   lcd.setCursor(0, 0);
   lcd.print("LED Controller");
   lcd.setCursor(0, 1);
   lcd.print("Starting...");
   delay(2000);
   lcd.clear();
-  digitalWrite(RED_LED_PIN, LOW);
-  digitalWrite(GREEN_LED_PIN, LOW);
+  
+  // Turn off both LEDs initially
+  digitalWrite(redLED, LOW);
+  digitalWrite(greenLED, LOW);
   
   updateLCDDisplay();
 }
@@ -61,12 +70,11 @@ void loop() {
     }
     
 
-    digitalWrite(GREEN_LED_PIN, greenLedState ? HIGH : LOW);
-    digitalWrite(RED_LED_PIN, redLedState ? HIGH : LOW);
+    // Update LED states
+    digitalWrite(greenLED, greenLedState ? HIGH : LOW);
+    digitalWrite(redLED, redLedState ? HIGH : LOW);
 
-    updateLCDDisplay();
-    
-    state = (state + 1) % 4;
+    updateLCDDisplay();    state = (state + 1) % 4;
   }
 }
 
