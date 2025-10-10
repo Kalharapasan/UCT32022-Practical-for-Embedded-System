@@ -29,9 +29,12 @@ void setup() {
 void loop() {
   float distance = readDistanceCM();
   Serial.print("Measured distance: ");
-  Serial.println(readDistanceCM());
-  lcd.setCursor(16, 0);   
-  lcd.print("Measured distance:");
+  Serial.println(distance);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Distance:");
+  lcd.setCursor(0, 1);
   lcd.print(distance);
-  delay(100);
+  lcd.print(" cm");
+  delay(500);
 }
