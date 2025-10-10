@@ -52,7 +52,8 @@ void loop() {
     lcd.print("Object Nearby");
     Serial.print("Measured distance: ");
     Serial.println(distance);
-  } else {
+  } 
+  else {
     digitalWrite(red_LED, LOW);
     digitalWrite(yellow_LED, LOW);
     noTone(buzzer);
