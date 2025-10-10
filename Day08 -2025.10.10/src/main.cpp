@@ -4,7 +4,7 @@
 #define TRIG_PIN 3
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
