@@ -1,18 +1,19 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+const int temPin =A0;
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  pinMode(temPin,INPUT);
+  Serial.begin(9600);
+  
 }
   
 void loop() {
-  // put your main code here, to run repeatedly:
+  int reding = analogRead(temPin);
+  int vol =  reding * (5/100);
+  int tem = vol *100;
+  Serial.print("Temperature Is : ");
+  Serial.print(tem);
+
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
