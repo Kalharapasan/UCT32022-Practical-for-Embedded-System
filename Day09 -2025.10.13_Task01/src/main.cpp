@@ -1,19 +1,32 @@
 #include <Arduino.h>
+#include <DHT.h>
 
-const int temPin =A0;
+#define DHTPIN 13       
+#define DHTTYPE DHT22   
+
+DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  pinMode(temPin,INPUT);
   Serial.begin(9600);
-  
+  dht.begin(); 
 }
-  
+
 void loop() {
-  int reding = analogRead(temPin);
-  int vol =  reding * (5/100);
-  int tem = vol *100;
-  Serial.print("Temperature Is : ");
-  Serial.print(tem);
+  delay(2000); 
 
+  float temp = dht.readTemperature(); 
+  float hum = dht.readHumidity();     
+
+  if (isnan(temp) || isnan(hum)) { 
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+
+  Serial.print("Temperature: ");
+  Serial.print(temp);
+  Serial.println(" °C");
+
+  Serial.print("Humidity: ");
+  Serial.print(hum);
+  Serial.println(" %");
 }
-

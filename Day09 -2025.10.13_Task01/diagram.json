@@ -9,7 +9,7 @@
   "connections": [
     [ "dht1:VCC", "uno:5V", "red", [ "v144", "h-163.2" ] ],
     [ "dht1:GND", "uno:GND.3", "black", [ "v192", "h-211.2" ] ],
-    [ "dht1:SDA", "uno:A0", "green", [ "v163.2", "h-172.7" ] ]
+    [ "uno:13", "dht1:SDA", "green", [ "v-67.2", "h182.8", "v259.2", "h76.8" ] ]
   ],
   "dependencies": {}
 }
