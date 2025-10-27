@@ -7,15 +7,11 @@ const int pirPin = 2;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
- 
   lcd.init();
   lcd.backlight();
-
   pinMode(ledPin, OUTPUT);
   pinMode(pirPin, INPUT);
   Serial.begin(9600);
-
-
 }
 
 
