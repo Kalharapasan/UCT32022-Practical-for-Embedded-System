@@ -20,8 +20,7 @@
     [ "sevseg1:E", "uno:6", "blue", [ "v28.8", "h96" ] ],
     [ "sevseg1:F", "uno:7", "white", [ "v-18.36", "h-48", "v153.6", "h124.8" ] ],
     [ "sevseg1:G", "uno:8", "gray", [ "v0.84", "h-9.6", "v115.2", "h76.8" ] ],
-    [ "sevseg1:COM.2", "uno:GND.1", "green", [ "h0", "v-37.56", "h-76.8", "v192", "h67.2" ] ],
-    [ "uno:9", "sevseg1:DP", "green", [ "v-105.6", "h20" ] ]
+    [ "sevseg1:COM.2", "uno:GND.1", "green", [ "h0", "v-37.56", "h-76.8", "v192", "h67.2" ] ]
   ],
   "dependencies": {}
 }
