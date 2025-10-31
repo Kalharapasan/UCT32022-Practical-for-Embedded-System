@@ -40,9 +40,12 @@ void loop() {
   {
     displayNumber(i);
     delay(1000);
+  }
+  
 
-   for (int j = 0; j < 8; j++) {
-      digitalWrite(segmentPins[j], LOW);
-    }
+  for (int i = 10; i >0; i--) 
+  {
+    displayNumber(i);
+    delay(1000);
   }
 }
