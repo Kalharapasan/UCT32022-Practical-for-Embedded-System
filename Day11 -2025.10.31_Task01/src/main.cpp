@@ -1,7 +1,7 @@
 #include <Arduino.h>
-const int segmentPins[8] = {2, 3, 4, 5, 6, 7, 8};
+const int segmentPins[7] = {2, 3, 4, 5, 6, 7, 8};
 const int commonCathodePin = 9;
-const byte numbers[11] = {
+const byte numbers[10] = {
   B11111100, // 0
   B01100000, // 1
   B11011010, // 2
@@ -15,37 +15,30 @@ const byte numbers[11] = {
 };
 
 
-void displayNumber(int num) {
-  for (int i = 0; i < 8; i++) {
-    digitalWrite(segmentPins[i], HIGH);
-  }
-  for (int i = 0; i < 8; i++) {
-    if (bitRead(numbers[num], i) == LOW) {
-      digitalWrite(segmentPins[7-i], LOW);
-    }
-  }
-}
-
-
 void setup() {
   for (int i = 0; i < 7; i++) {
     pinMode(segmentPins[i], OUTPUT);
   }
   pinMode(commonCathodePin, OUTPUT);
+  digitalWrite(commonCathodePin, LOW); 
 }
 
 void loop() {
   
-  for (int i = 0; i < 10; i++) 
-  {
-    displayNumber(i);
+  for (int i = 0; i < 10; i++) {
+    for (int j = 0; j < 7; j++) {
+      bool on = bitRead(numbers[i], 7 - j);
+      digitalWrite(segmentPins[j], on ? HIGH : LOW);
+    }
     delay(1000);
   }
-  
 
-  for (int i = 10; i >0; i--) 
-  {
-    displayNumber(i);
+  for (int i = 10; i >0; i--) {
+    for (int j = 0; j < 7; j++) {
+      bool on = bitRead(numbers[i], 7 - j);
+      digitalWrite(segmentPins[j], on ? HIGH : LOW);
+    }
     delay(1000);
   }
+
 }
