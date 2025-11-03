@@ -1,18 +1,23 @@
 #include <Arduino.h>
-
-// put function declarations here:
-int myFunction(int, int);
+#include <Servo.h>
+Servo servo;
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+
+  servo.attach(3);
+  
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
+  servo.write(0);
+  delay(1000);
+
+  servo.write(90);
+  delay(1000);
+
+  servo.write(180);
+  delay(1000);
+ 
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
