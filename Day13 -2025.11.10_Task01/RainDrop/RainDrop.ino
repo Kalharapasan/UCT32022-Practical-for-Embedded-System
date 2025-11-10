@@ -28,7 +28,7 @@ void loop() {
 
   lcd.setCursor(0, 1);
 
-  if (x < 500) {
+  if (x > 500) {
     Serial.println("No Rain Detected");
     lcd.print("No Rain Detected ");
     myservo.write(180); 
