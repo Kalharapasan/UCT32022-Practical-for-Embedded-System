@@ -93,7 +93,7 @@ void translateIR() {
       lcdPrint("Blue LED OFF");
       break;
     case 66:  // num: 7 - Buzzer ON
-      tone(buzzerPin,1000);
+      tone(buzzerPin, 1000, 500);  // 1000Hz for 500ms
       lcdPrint("Buzzer ON");
       break;
     case 74:  // num: 8 - Buzzer OFF
@@ -111,7 +111,7 @@ void translateIR() {
       digitalWrite(redledPin, HIGH);
       digitalWrite(greenledPin, HIGH);
       digitalWrite(blueledPin, HIGH);
-      tone(buzzerPin, 500);
+      tone(buzzerPin, 500, 500);  // 500Hz for 500ms
       lcdPrint("All ON");
       break;
     case 162:
