@@ -7,9 +7,9 @@
 #define LCD_COLUMNS 20
 #define LCD_LINES   4
 
-#define BTN_UP   0x18  
-#define BTN_DOWN 0x52 
-#define BTN_OK   0x1C 
+#define BTN_UP   0x2  
+#define BTN_DOWN 0x98 
+#define BTN_OK   0xA8 
 
 LiquidCrystal_I2C lcd(I2C_ADDR, LCD_COLUMNS, LCD_LINES);
 
@@ -31,7 +31,7 @@ void setup() {
 
 void loop() {
   if (IrReceiver.decode()) {
-    uint8_t command = IrReceiver.decodedIRData.command
+    uint8_t command = IrReceiver.decodedIRData.command;
     Serial.print("Received command: 0x");
     Serial.println(command, HEX);
     if (command == BTN_UP) {
