@@ -89,11 +89,11 @@ void translateIR() {
       lcdPrint("Blue LED OFF");
       break;
     case 66:  // num: 7 - Buzzer ON
-      digitalWrite(buzzerPin, HIGH);
+      tone(buzzerPin,500);
       lcdPrint("Buzzer ON");
       break;
     case 74:  // num: 8 - Buzzer OFF
-      digitalWrite(buzzerPin, LOW);
+      noTone(buzzerPin);
       lcdPrint("Buzzer OFF");
       break;
     case 82:  // num: 9 - All OFF
