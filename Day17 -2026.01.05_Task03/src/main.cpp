@@ -29,6 +29,8 @@ void initializeLCD() {
 }
 
 void setup() {
+  Serial.begin(9600);
+  
   pinMode(redledPin, OUTPUT);
   pinMode(greenledPin, OUTPUT);
   pinMode(blueledPin, OUTPUT);
@@ -62,6 +64,9 @@ void lcdPrint(const char* text) {
 
 void translateIR() {
   // Takes command based on IR code received
+  Serial.print("Button pressed - Code: ");
+  Serial.println(IrReceiver.decodedIRData.command);
+  
   switch (IrReceiver.decodedIRData.command) {
     case 48:  // num: 1 - Red LED ON
       digitalWrite(redledPin, HIGH);
