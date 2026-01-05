@@ -29,6 +29,16 @@ void initializeLCD() {
 }
 
 void setup() {
+  pinMode(redledPin, OUTPUT);
+  pinMode(greenledPin, OUTPUT);
+  pinMode(blueledPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  
+  digitalWrite(redledPin, LOW);
+  digitalWrite(greenledPin, LOW);
+  digitalWrite(blueledPin, LOW);
+  digitalWrite(buzzerPin, LOW);
+  
   initializeReceiver();
   initializeLCD();
 }
@@ -54,65 +64,57 @@ void lcdPrint(const char* text) {
 void translateIR() {
   // Takes command based on IR code received
   switch (IrReceiver.decodedIRData.command) {
+    case 48:  // num: 1 - Red LED ON
+      digitalWrite(redledPin, HIGH);
+      lcdPrint("Red LED ON");
+      break;
+    case 24:  // num: 2 - Red LED OFF
+      digitalWrite(redledPin, LOW);
+      lcdPrint("Red LED OFF");
+      break;
+    case 122:  // num: 3 - Green LED ON
+      digitalWrite(greenledPin, HIGH);
+      lcdPrint("Green LED ON");
+      break;
+    case 16:  // num: 4 - Green LED OFF
+      digitalWrite(greenledPin, LOW);
+      lcdPrint("Green LED OFF");
+      break;
+    case 56:  // num: 5 - Blue LED ON
+      digitalWrite(blueledPin, HIGH);
+      lcdPrint("Blue LED ON");
+      break;
+    case 90:  // num: 6 - Blue LED OFF
+      digitalWrite(blueledPin, LOW);
+      lcdPrint("Blue LED OFF");
+      break;
+    case 66:  // num: 7 - Buzzer ON
+      digitalWrite(buzzerPin, HIGH);
+      lcdPrint("Buzzer ON");
+      break;
+    case 74:  // num: 8 - Buzzer OFF
+      digitalWrite(buzzerPin, LOW);
+      lcdPrint("Buzzer OFF");
+      break;
+    case 82:  // num: 9 - All OFF
+      digitalWrite(redledPin, LOW);
+      digitalWrite(greenledPin, LOW);
+      digitalWrite(blueledPin, LOW);
+      digitalWrite(buzzerPin, LOW);
+      lcdPrint("All OFF");
+      break;
+    case 104:  // num: 0 - All ON
+      digitalWrite(redledPin, HIGH);
+      digitalWrite(greenledPin, HIGH);
+      digitalWrite(blueledPin, HIGH);
+      digitalWrite(buzzerPin, HIGH);
+      lcdPrint("All ON");
+      break;
     case 162:
       lcdPrint("POWER");
       break;
     case 226:
       lcdPrint("MENU");
-      break;
-    case 34:
-      lcdPrint("TEST");
-      break;
-    case 2:
-      lcdPrint("PLUS");
-      break;
-    case 194:
-      lcdPrint("BACK");
-      break;
-    case 224:
-      lcdPrint("PREV.");
-      break;
-    case 168:
-      lcdPrint("PLAY");
-      break;
-    case 144:
-      lcdPrint("NEXT");
-      break;
-    case 104:
-      lcdPrint("num: 0");
-      break;
-    case 152:
-      lcdPrint("MINUS");
-      break;
-    case 176:
-      lcdPrint("key: C");
-      break;
-    case 48:
-      lcdPrint("num: 1");
-      break;
-    case 24:
-      lcdPrint("num: 2");
-      break;
-    case 122:
-      lcdPrint("num: 3");
-      break;
-    case 16:
-      lcdPrint("num: 4");
-      break;
-    case 56:
-      lcdPrint("num: 5");
-      break;
-    case 90:
-      lcdPrint("num: 6");
-      break;
-    case 66:
-      lcdPrint("num: 7");
-      break;
-    case 74:
-      lcdPrint("num: 8");
-      break;
-    case 82:
-      lcdPrint("num: 9");
       break;
     default:
       lcd.clear();
