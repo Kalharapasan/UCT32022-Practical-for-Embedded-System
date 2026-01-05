@@ -12,8 +12,6 @@
 #define BTN_OK   0xA8 
 
 LiquidCrystal_I2C lcd(I2C_ADDR, LCD_COLUMNS, LCD_LINES);
-
-
 int counter = 0;
 
 void setup() {
