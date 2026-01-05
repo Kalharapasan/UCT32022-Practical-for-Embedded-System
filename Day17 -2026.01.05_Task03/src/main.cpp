@@ -10,7 +10,7 @@
 int redledPin =2;
 int greenledPin =3;
 int blueledPin =4;
-int buzzerPin =5;
+int buzzerPin =11;
 
 LiquidCrystal_I2C lcd(I2C_ADDR, LCD_COLUMNS, LCD_LINES);
 
@@ -32,12 +32,11 @@ void setup() {
   pinMode(redledPin, OUTPUT);
   pinMode(greenledPin, OUTPUT);
   pinMode(blueledPin, OUTPUT);
-  pinMode(buzzerPin, OUTPUT);
+  // pinMode for buzzer not needed when using tone()
   
   digitalWrite(redledPin, LOW);
   digitalWrite(greenledPin, LOW);
   digitalWrite(blueledPin, LOW);
-  digitalWrite(buzzerPin, LOW);
   
   initializeReceiver();
   initializeLCD();
@@ -89,7 +88,7 @@ void translateIR() {
       lcdPrint("Blue LED OFF");
       break;
     case 66:  // num: 7 - Buzzer ON
-      tone(buzzerPin,500);
+      tone(buzzerPin,1000);
       lcdPrint("Buzzer ON");
       break;
     case 74:  // num: 8 - Buzzer OFF
@@ -100,14 +99,14 @@ void translateIR() {
       digitalWrite(redledPin, LOW);
       digitalWrite(greenledPin, LOW);
       digitalWrite(blueledPin, LOW);
-      digitalWrite(buzzerPin, LOW);
+      noTone(buzzerPin);
       lcdPrint("All OFF");
       break;
     case 104:  // num: 0 - All ON
       digitalWrite(redledPin, HIGH);
       digitalWrite(greenledPin, HIGH);
       digitalWrite(blueledPin, HIGH);
-      digitalWrite(buzzerPin, HIGH);
+      tone(buzzerPin, 500);
       lcdPrint("All ON");
       break;
     case 162:
