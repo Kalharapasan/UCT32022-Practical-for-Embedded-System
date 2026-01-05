@@ -22,19 +22,19 @@ void loop() {
     Serial.println(irCode, HEX);
     
     // Change these codes to match your remote buttons
-    if (irCode == 0xBA45FF00) {  // Green LED ON
+    if (irCode ==  0xCF30FF00) {  // Green LED ON
       digitalWrite(greenLed, HIGH);
       Serial.println("Green LED ON");
     }
-    else if (irCode == 0xB946FF00) {  // Green LED OFF
+    else if (irCode == 0xE718FF00) {  // Green LED OFF
       digitalWrite(greenLed, LOW);
       Serial.println("Green LED OFF");
     }
-    else if (irCode == 0xB847FF00) {  // Red LED ON
+    else if (irCode == 0x857AFF00) {  // Red LED ON
       digitalWrite(redLed, HIGH);
       Serial.println("Red LED ON");
     }
-    else if (irCode == 0xBB44FF00) {  // Red LED OFF
+    else if (irCode == 0xC738FF00) {  // Red LED OFF
       digitalWrite(redLed, LOW);
       Serial.println("Red LED OFF");
     }
