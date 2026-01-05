@@ -9,13 +9,17 @@
 
 LiquidCrystal_I2C lcd(I2C_ADDR, LCD_COLUMNS, LCD_LINES);
 
+// Function declarations
+void translateIR();
+void lcdPrint(const char* text);
+
 void initializeReceiver() {
   // set up the receiver to receive input the NEW way- it changed from earlier versions)
   IrReceiver.begin(IR_RECEIVE_PIN);
 }
 
 void initializeLCD() {
-  lcd.begin(16, 2);   // 16 columns, 2 rows.
+  lcd.begin(LCD_COLUMNS, LCD_LINES);
   lcd.print("<press a button>");  // print something.
 }
 
@@ -32,7 +36,7 @@ void loop() {
   }
 }
 
-void lcdPrint(char* text) {
+void lcdPrint(const char* text) {
   lcd.clear();
   lcd.setCursor(0, 0); // set cursor for text to print in top left row/column
   lcd.print("button pressed:");

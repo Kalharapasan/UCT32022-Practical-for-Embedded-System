@@ -11,7 +11,14 @@
       "left": 216.8,
       "attrs": { "pins": "i2c" }
     },
-    { "type": "wokwi-ir-receiver", "id": "ir1", "top": -106.95, "left": -30.58, "attrs": {} }
+    { "type": "wokwi-ir-receiver", "id": "ir1", "top": -106.95, "left": -30.58, "attrs": {} },
+    {
+      "type": "wokwi-ir-remote",
+      "id": "remote1",
+      "top": -165.61287054965783,
+      "left": -344.02992152302073,
+      "attrs": {}
+    }
   ],
   "connections": [
     [ "lcd1:SCL", "uno:A5", "green", [ "h-28.8", "v144.3", "h124.8", "v307.2", "h-76.8" ] ],
