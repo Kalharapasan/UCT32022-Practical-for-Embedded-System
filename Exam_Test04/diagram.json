@@ -8,7 +8,13 @@
     { "type": "wokwi-led", "id": "led2", "top": -90, "left": 71, "attrs": { "color": "red" } },
     { "type": "wokwi-led", "id": "led3", "top": -90, "left": 147.8, "attrs": { "color": "red" } },
     { "type": "wokwi-led", "id": "led4", "top": -90, "left": 224.6, "attrs": { "color": "red" } },
-    { "type": "wokwi-led", "id": "led5", "top": -90, "left": 186.2, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led5",
+      "top": -90,
+      "left": 186.2,
+      "attrs": { "color": "green" }
+    },
     { "type": "wokwi-led", "id": "led6", "top": -90, "left": 301.4, "attrs": { "color": "red" } },
     { "type": "wokwi-led", "id": "led7", "top": -90, "left": 263, "attrs": { "color": "red" } },
     { "type": "wokwi-servo", "id": "servo1", "top": -11.6, "left": 422.4, "attrs": {} },
