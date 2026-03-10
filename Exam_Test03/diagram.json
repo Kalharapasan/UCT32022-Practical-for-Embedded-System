@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "author": "Pasan Kalhara",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -9, "left": 114.6, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 64,
+      "left": 629.6,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -184.4,
+      "left": -359.2,
+      "attrs": {}
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -126.8, "left": 470.4, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 300, "left": 549, "attrs": { "volume": "0.1" } },
+    { "type": "wokwi-led", "id": "led1", "top": -99.6, "left": 51.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -99.6,
+      "left": 99.8,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "keypad1:C4", "uno:2", "green", [ "v9.6", "h134.1", "v-345.6", "h441.6" ] ],
+    [ "keypad1:C3", "uno:3", "green", [ "v19.2", "h153.45", "v-345.6", "h384" ] ],
+    [ "keypad1:C2", "uno:4", "green", [ "v28.8", "h172.8", "v-345.6", "h364.8" ] ],
+    [ "keypad1:C1", "uno:5", "green", [ "v38.4", "h191.9", "v-345.6", "h345.6" ] ],
+    [ "keypad1:R4", "uno:6", "green", [ "v48", "h211", "v-345.6", "h326.4" ] ],
+    [ "keypad1:R3", "uno:7", "green", [ "v57.6", "h230.1", "v-345.6", "h307.2" ] ],
+    [ "keypad1:R2", "uno:8", "green", [ "v67.2", "h249.2", "v-345.6", "h278.4" ] ],
+    [ "keypad1:R1", "uno:9", "green", [ "v76.8", "h268.8", "v-345.6", "h259.2" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h-67.2", "v153.6", "h-268.8" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-48", "v153.7", "h-307.2" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h-134.4", "v105.8", "h-134.4", "v-9.6" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h-105.6", "v105.9", "h-153.6" ] ],
+    [ "uno:11", "servo1:PWM", "green", [ "v-57.6", "h202.2", "v0", "h9.6" ] ],
+    [ "servo1:V+", "uno:5V", "green", [ "h-19.2", "v345.7", "h-163.2" ] ],
+    [ "servo1:GND", "uno:GND.1", "black", [ "h-249.6" ] ],
+    [ "uno:GND.3", "bz1:1", "black", [ "v230.3", "h272.8" ] ],
+    [ "bz1:2", "uno:12", "green", [ "v57.6", "h-182.8", "v-547.2", "h-153.6" ] ],
+    [ "uno:GND.1", "led2:C", "black", [ "v-38.4", "h-114.9" ] ],
+    [ "uno:GND.1", "led1:C", "black", [ "v-28.8", "h-162.9" ] ],
+    [ "led1:A", "uno:13", "green", [ "v9.6", "h163.2" ] ],
+    [ "uno:10", "led2:A", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
